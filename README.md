@@ -58,5 +58,81 @@ custom_algorithm() looks stable(green line) and way faster
 
 Executing time on 10^25 = 0.0 seconds
 
+
+## Task 2.
+#### You have a matrix MxN that represents a map. There are 2 possible states on the map: 1 - islands, 0 - ocean. Your task is to calculate the number of islands in the most effective way. Please write code in Python 3.
+
+Examples:
+Input:
+
+3 3
+
+0 1 0
+
+0 0 0
+
+0 1 1
+
+Output: 3
+
+Input:
+
+3 4 
+
+0 0 0 1
+
+0 0 1 0
+
+0 1 0 0
+
+Output: 3
+
+Input:
+
+3 4
+
+0 0 0 1
+
+0 0 1 1
+
+0 1 0 1
+
+Output: 5
+
+### Solution 
+As we deal with binary matrix and the task is calculate sum of ones, the most effective way, in my opinion, is sum all elements in matrix. 
+[solution_task_2.py](https://github.com/halynavs/calcul-tasks/blob/main/solution_task_2.py)
+
+```
+def islands_count(matrix):
+    print(np.sum(matrix))
+ ```
+        
+        
+### Result
+![Result](https://github.com/halynavs/calcul-tasks/blob/main/images/result2.png)
+[tests_task_2.py](https://github.com/halynavs/calcul-tasks/blob/main/tests_task_2.py)
+ 
+### Performance evaluation
+using timeit(1000 times with random matrix size=(10^2,10^2))
+```
+for i in range(1000):
+    matrix = np.random.randint(2, size=(10**2,10**2))
+    t1 = Timer("np.sum(matrix)", globals=globals())
+    time1.append(t1.timeit(number=1000))
+    
+```
+
+[timeit_perfomance_eval_task_2.py](https://github.com/halynavs/calcul-tasks/blob/main/timeit_perfomance_eval_task_2.py)
+
+![timeit_perfomance_eval2](https://github.com/halynavs/calcul-tasks/blob/main/images/timeit_perfomance_eval2.png)
+
+
+
+### Conclussion
+islands_count() looks stable(green line) 
+
+
+
  
         
